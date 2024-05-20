@@ -7,6 +7,8 @@ import { H2, H3, MiddlePanel, Row, Section, ShareLink } from '../../common-eleme
 import type { ContentItemModel } from '../../services';
 import type { GroupModel, OperationModel } from '../../services/models';
 import { Operation } from '../Operation/Operation';
+import './index.css';
+import { options } from '../../../demo/playground/hmr-playground';
 
 @observer
 export class ContentItems extends React.Component<{
@@ -79,11 +81,13 @@ export class SectionItem extends React.Component<ContentItemProps> {
             </Header>
           </MiddlePanel>
         </Row>
-        <AdvancedMarkdown
-          parentId={this.props.item.id}
-          source={description || ''}
-          htmlWrap={middlePanelWrap}
-        />
+        <div className={options?.hideMarkdownBackground ? 'myElement' : ''}>
+          <AdvancedMarkdown
+            parentId={this.props.item.id}
+            source={description || ''}
+            htmlWrap={middlePanelWrap}
+          />
+        </div>
         {externalDocs && (
           <Row>
             <MiddlePanel>

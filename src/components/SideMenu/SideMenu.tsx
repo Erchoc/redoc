@@ -9,6 +9,7 @@ import { MenuItems } from './MenuItems';
 import { PerfectScrollbarWrap } from '../../common-elements/perfect-scrollbar';
 import { RedocAttribution } from './styled.elements';
 import RedoclyLogo from './Logo';
+import { options } from '../../../demo/playground/hmr-playground';
 
 @observer
 export class SideMenu extends React.Component<{ menu: MenuStore; className?: string }> {
@@ -27,10 +28,17 @@ export class SideMenu extends React.Component<{ menu: MenuStore; className?: str
       >
         <MenuItems items={store.items} onActivate={this.activate} root={true} />
         <RedocAttribution>
-          <a target="_blank" rel="noopener noreferrer" href="https://redocly.com/redoc/">
-            <RedoclyLogo />
-            API docs by Redocly
-          </a>
+          {!options.sideMenuLogo ? (
+            <a target="_blank" rel="noopener noreferrer" href={'https://redocly.com/redoc/'}>
+              <RedoclyLogo />
+              API docs by Redocly
+            </a>
+          ) : (
+            <a target="_blank" rel="noopener noreferrer" href={options.sideMenuLogo?.href}>
+              <img src={options.sideMenuLogo?.imgUrl} alt={options.sideMenuLogo?.docs} />
+              {options.sideMenuLogo?.docs}
+            </a>
+          )}
         </RedocAttribution>
       </PerfectScrollbarWrap>
     );

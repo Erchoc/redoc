@@ -24,6 +24,12 @@ export interface RedocRawOptions {
   downloadFileName?: string;
   downloadDefinitionUrl?: string;
   disableSearch?: boolean | string;
+  sideMenuLogo?: {
+    imgUrl: string;
+    href: string;
+    docs: string;
+  };
+  hideMarkdownBackground?: boolean;
   onlyRequiredInSamples?: boolean | string;
   showExtensions?: boolean | string | string[];
   sideNavStyle?: SideNavStyleEnum;
@@ -228,6 +234,12 @@ export class RedocNormalizedOptions {
   downloadFileName?: string;
   downloadDefinitionUrl?: string;
   disableSearch: boolean;
+  sideMenuLogo?: {
+    imgUrl: string;
+    href: string;
+    docs: string;
+  };
+  hideMarkdownBackground?: boolean;
   onlyRequiredInSamples: boolean;
   showExtensions: boolean | string[];
   sideNavStyle: SideNavStyleEnum;
@@ -300,6 +312,8 @@ export class RedocNormalizedOptions {
     this.downloadFileName = raw.downloadFileName;
     this.downloadDefinitionUrl = raw.downloadDefinitionUrl;
     this.disableSearch = argValueToBoolean(raw.disableSearch);
+    this.sideMenuLogo = raw.sideMenuLogo;
+    this.hideMarkdownBackground = argValueToBoolean(raw.hideMarkdownBackground);
     this.onlyRequiredInSamples = argValueToBoolean(raw.onlyRequiredInSamples);
     this.showExtensions = RedocNormalizedOptions.normalizeShowExtensions(raw.showExtensions);
     this.sideNavStyle = RedocNormalizedOptions.normalizeSideNavStyle(raw.sideNavStyle);

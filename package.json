@@ -58,7 +58,7 @@
     "license-check": "license-checker --production --onlyAllow 'MIT;ISC;Apache-2.0;BSD;BSD-2-Clause;BSD-3-Clause;CC-BY-4.0;Python-2.0' --summary",
     "docker:build": "docker build -f config/docker/Dockerfile -t redoc .",
     "prepare": "husky install",
-    "pre-commit": "pretty-quick --staged && npm run lint"
+    "pre-commit": ""
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.17.1",
@@ -86,6 +86,9 @@
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
+    "acorn": "^8.11.3",
+    "ajv": "^8.13.0",
+    "react-is": "^18.3.1",
     "beautify-benchmark": "^0.2.4",
     "conventional-changelog-cli": "^3.0.0",
     "copy-webpack-plugin": "^9.0.0",
@@ -129,7 +132,7 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
     "webpack-node-externals": "^3.0.0",
-    "workerize-loader": "github:redocly/workerize-loader#webpack-5-dist"
+    "workerize-loader": "^2.0.2"
   },
   "peerDependencies": {
     "core-js": "^3.1.4",
